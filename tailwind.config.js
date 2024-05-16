@@ -1,4 +1,4 @@
-import {colorsTheme} from './src/styles/colors'
+import {colorsTheme} from './src/styles/theme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
