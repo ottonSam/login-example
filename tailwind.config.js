@@ -8,11 +8,15 @@ export default {
   ],
   theme: {
     extend: {
-      colors: colorsTheme
+      colors: colorsTheme,
+      boxShadow: {
+        'card': "0px 0px 64px 0px #00000040"
+
+      },
+      fontFamily: {
+        nunito: ['Nunito', 'sans-serif']
+      }
     },
-    fontFamily: {
-      nunito: ['Nunito', 'sans-serif']
-    }
   },
   plugins: [],
 }
