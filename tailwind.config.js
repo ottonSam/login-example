@@ -10,7 +10,9 @@ export default {
     extend: {
       colors: colorsTheme,
       boxShadow: {
-        'card': "0px 0px 64px 0px #00000040"
+        'card-login': "0px 0px 64px 0px #00000040",
+        'card-user': "0px 2px 10px 0px #0000001A",
+
 
       },
       fontFamily: {

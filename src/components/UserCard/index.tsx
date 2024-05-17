@@ -5,7 +5,7 @@ const UserCard: React.FC = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="flex flex-col w-[356px] p-[30px] gap-[30px] bg-branco-card rounded-[16px] shadow-card mt-[95px] mx-auto">
+    <div className="flex flex-col w-[356px] p-[30px] gap-[30px] bg-branco-card rounded-[16px] shadow-card-user mt-[95px] mx-auto">
       <div className="flex flex-col gap-[9px] mx-auto">
         <h6 className="font-semibold text-[12px] text-preto-text">
           Profile picture
