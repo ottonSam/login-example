@@ -1,8 +1,13 @@
+import { AuthProvider } from "./context/AuthContext";
+import { AppRouter } from "./routes";
+
 function App() {
   return (
-    <div className="flex flex-1">
-      <h1 className="text-3xl font-bold underline mx-auto">Hello world!</h1>
-    </div>
+    <AuthProvider>
+      <div className="flex flex-1 h-screen w-screen bg-branco-text">
+        <AppRouter />
+      </div>
+    </AuthProvider>
   );
 }
 
