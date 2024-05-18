@@ -1,4 +1,5 @@
 import React from "react";
+import UserCardField from "../UserCardField";
 
 const UserCard: React.FC<{
   profile: {
@@ -20,29 +21,13 @@ const UserCard: React.FC<{
         <img
           className="w-[56px] h-[56px] mx-auto rounded-[8px]"
           src={
-            profile.avatar.high || profile.avatar.medium || profile.avatar.low
+            profile.avatar.low || profile.avatar.medium || profile.avatar.high
           }
           alt="profile picture"
         />
       </div>
-      <div className="flex flex-col gap-[9px]">
-        <h5 className="text-[14px] text-preto-label">
-          Your
-          <span className="font-bold"> Name</span>
-        </h5>
-        <div className="rounded-[9px] bg-cinza-input p-[16px] bg-branco-field text-[12px] text-preto-text">
-          {`${profile.name}`}
-        </div>
-      </div>
-      <div className="flex flex-col gap-[9px]">
-        <h5 className="text-[14px] text-preto-label">
-          Your
-          <span className="font-bold"> E-mail</span>
-        </h5>
-        <div className="rounded-[9px] bg-cinza-input p-[16px] bg-branco-field text-[12px] text-preto-text">
-          {profile.email}
-        </div>
-      </div>
+      <UserCardField label="Name" value={profile.name} />
+      <UserCardField label="E-mail" value={profile.email} />
     </div>
   );
 };
