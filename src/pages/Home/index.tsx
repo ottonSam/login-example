@@ -1,9 +1,28 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import UserCard from "../../components/UserCard";
+import { UserProfile } from "../../types/UserProfile";
+import { getProfile } from "../../service/api";
 
 const Home: React.FC = () => {
   const { singOut } = useContext(AuthContext);
+
+  const [profile, setProfile] = useState<UserProfile | null>(null);
+
+  useEffect(() => {
+    getProfile().then((response) => setProfile(response));
+  }, []);
+
+  const profileData = profile && {
+    avatar: {
+      high: profile.avatar.high,
+      medium: profile.avatar.medium,
+      low: profile.avatar.low,
+    },
+    name: profile.name,
+    email: profile.email,
+  };
+
   return (
     <div className="flex flex-1 flex-col">
       <div className="flex py-[13px] px-[34px] bg-branco-base">
@@ -16,7 +35,7 @@ const Home: React.FC = () => {
           </h2>
         </div>
       </div>
-      <UserCard />
+      {profileData && <UserCard profile={profileData} />}
     </div>
   );
 };
