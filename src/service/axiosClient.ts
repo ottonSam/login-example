@@ -30,8 +30,10 @@ axiosAuthClient.interceptors.response.use(
     return config;
   },
   (error) => {
-    if (error.response.status === 403) {
-      alert("Sessão expirada, faça login novamente");
+    if (error.response.status === 403 || error.response.status === 401) {
+      alert(
+        "Ouve um erro ao recuperar os dados da sua sessão, por favor faça login novamente."
+      );
       logout();
     }
     return Promise.reject(error);
