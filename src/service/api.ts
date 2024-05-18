@@ -2,10 +2,10 @@ import { axiosClient, axiosAuthClient } from "./axiosClient";
 
 export const login = async (email: string, password: string) => {
   return await axiosClient
-    .post("/auth/login/", { email: email, password: password })
-    .then(async (res) => await res.data)
+    .post("auth/login/", { email, password })
+    .then((res) => res.data)
     .catch((error) => {
-      throw error.response.data;
+      console.error(error.response.data);
     });
 };
 

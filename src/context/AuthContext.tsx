@@ -4,7 +4,7 @@ import { login } from "../service/api";
 
 interface AuthContextType {
   signed: boolean;
-  singIn: (email: string, password: string) => Promise<void>;
+  singIn: (email: string, password: string) => Promise<boolean>;
   token: string | null;
   singOut: () => void;
 }
@@ -32,10 +32,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const handleSingIn = async (email: string, password: string) => {
     const loginResponse = await login(email, password);
-    if (loginResponse.tokens) {
+    if (loginResponse !== undefined) {
       setToken(loginResponse.tokens.access);
       localStorage.setItem("token", loginResponse.tokens.access);
+      return true;
     }
+    return false;
   };
   return (
     <AuthContext.Provider
