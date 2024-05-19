@@ -1,30 +1,75 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite + Vitest + Cypress
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Sobre
 
-Currently, two official plugins are available:
+Esta aplicação React com TypeScript demonstra a criação de um fluxo de autenticação simples com duas telas: login e detalhes do usuário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Funcionalidades:
 
-## Expanding the ESLint configuration
+#### Tela de login
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Formulário com campos de email e senha.
+- Validação de formulário utilizando a biblioteca Zod.
+- Redirecionamento para a tela de detalhes após login bem-sucedido.
 
-- Configure the top-level `parserOptions` property like this:
+#### Tela de detalhes do usuário
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
+- Card com informações do usuário logado (nome, email, foto de perfil).
+- Acessível apenas após o login.
+- Botão de logout.
+
+### Tecnologias:
+
+- React
+- TypeScript
+- Zod (validação de formulário)
+- Vitest + testing library (testes de unidade)
+- Cypress (testes end-to-end)
+
+## Instalação e execução local
+
+A instalação e execução do projeto exigem o Node.js e o NPM (Node Package Manager) previamente instalados em sua máquina. Caso não esteja instalado [Clique aqui](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) e siga o tutorial de instalação.
+
+#### Dentro do diretório raiz do projeto siga os seguintes passos:
+
+1. Instale as dependências do projeto
+
+```
+npm install
+```
+
+2. Configure as variáveis de ambiente
+
+#### Crie os seguintes arquivos no diretório raiz do projeto:
+
+##### .env
+
+```
+VITE_API_BASE_URL=https://api.homologation.cliqdrive.com.br
+```
+
+##### cypress.env.json
+
+```
+{
+  "EMAIL": "cliente@youdrive.com",
+  "PASSWORD": "password"
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. Execute o projeto no ambiente de desenvolvimento
+
+```
+npm run dev
+```
+
+## Testes
+
+O projeto possui dois tipos de testes que devem ser executados separadamente para garantir a qualidade e confiabilidade do código:
+
+1. Testes de unidade: Verificam o funcionamento individual de componentes e módulos do código. Para executá-los, utilize o comando `npm run test`.
+2. Testes end-to-end: Validam o fluxo completo da aplicação, desde a interface do usuário até a interação com o back-end. Para executá-los, utilize o comando `npm run end-to-end`.
+
+## Deploy
+
+Para visualizar um exemplo de aplicação de login em funcionamento acesse o seguinte link: `https://login-example-iota.vercel.app`.
