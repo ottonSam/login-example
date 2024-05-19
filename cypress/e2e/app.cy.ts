@@ -5,8 +5,8 @@ describe("Login spec", () => {
 
   it("happy path", () => {
     cy.get("img").should("be.visible");
-    cy.get("input[id=email]").type("cliente@youdrive.com");
-    cy.get("input[id=password]").type("password");
+    cy.get("input[id=email]").type(Cypress.env("EMAIL"));
+    cy.get("input[id=password]").type(Cypress.env("PASSWORD"));
     cy.get("button[type=submit]").click();
     cy.url().should("eq", "http://localhost:5173/");
     cy.get("h6").should("contain.text", "Profile picture");
